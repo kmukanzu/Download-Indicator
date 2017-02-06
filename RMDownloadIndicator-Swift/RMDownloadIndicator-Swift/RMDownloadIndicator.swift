@@ -136,7 +136,9 @@ class RMDownloadIndicator: UIView {
     func keyframePathsWithDuration(duration: CGFloat, lastUpdatedAngle: CGFloat, newAngle: CGFloat, radius: CGFloat, type: RMIndicatorType) -> [CGPath] {
         let frameCount: Int = Int(ceil(duration * 60))
         var array: [CGPath] = []
-        for var frame = 0; frame <= frameCount; frame++ {
+        
+        // C Style for statement is deprecated in swift 3
+        for frame in 0..<frameCount {
             let startAngle = degreeToRadian(-90)
             
             let angleChange = ((newAngle - lastUpdatedAngle) * CGFloat(frame))
